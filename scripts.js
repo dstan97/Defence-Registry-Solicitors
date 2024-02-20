@@ -3,6 +3,7 @@ $(document).ready(function() {
     $(".js-example-responsive").select2();
     $('#firm').next(".select2-container").hide();
     $('#int_required').next(".select2-container").hide();
+    $('#sol_select').next(".select2-container").hide();
 });
 
 let stations;
@@ -57,7 +58,7 @@ function getSolNum(){
                 sol_nums = data;
                 for (let i = 0; i < sol_nums.sol_nums.length; i++) {
                 if(document.getElementById("sol_select").value >= 0) {
-                    document.getElementById("sol_num").value = sol_nums.sol_nums[document.getElementById("sol_select").value];
+                    document.getElementById("sol_num").value = "Tel Number: " + sol_nums.sol_nums[document.getElementById("sol_select").value];
                 }
                 }
         });  
@@ -144,6 +145,9 @@ function ownCheck(src) {
         document.getElementById('scheme').style.display = "none";
         $('#scheme').next(".select2-container").hide();
         document.getElementById('scheme_label').style.display = "none";
+        $('#sol_select').next(".select2-container").show();
+        document.getElementById('sol_select_label').style.display = "block";
+        document.getElementById('sol_num').style.display = "block";
     }
     else{
         document.getElementById('firm').style.display = "none";
@@ -152,6 +156,9 @@ function ownCheck(src) {
         document.getElementById('scheme').style.display = "block";
         $('#scheme').next(".select2-container").show();
         document.getElementById('scheme_label').style.display = "block";
+        $('#sol_select').next(".select2-container").hide();
+        document.getElementById('sol_select_label').style.display = "none";
+        document.getElementById('sol_num').style.display = "none";
     }
 }
 

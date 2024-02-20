@@ -155,6 +155,18 @@
     display: none;
   }
 
+  #sol_select{
+    display: none;
+  }
+
+  #sol_select_label{
+    display: none;
+  }
+
+  #sol_num{
+    display: none;
+  }
+
   .sol_select_group {
     display: flex;
   }
