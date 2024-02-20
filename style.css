@@ -155,6 +155,20 @@
     display: none;
   }
 
+  .sol_select_group {
+    display: flex;
+  }
+
+  .sol_select_group .select2-container{
+    display: block;
+}
+
+  .sol_select_group .sol_num{
+    display: block;
+    width: 25%;
+    text-align: center;
+  }
+
   .dp_name_group {
     display: flex;
     justify-content: space-between;
@@ -163,10 +177,19 @@
   .dp_name_field{
     display: block;
     width: 49%;
+    font: 1.5rem;
   }
 
   input[type=text].dp_name{
     width: 100%;
+  }
+
+  .btn_container{
+    display: flex;
+    width: 100%;
+  }
+  .submit_btn{
+    margin: auto;
   }
   
   /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */

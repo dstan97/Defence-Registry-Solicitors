@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
     <title>DRS - Case Logging</title>
 </head>
 <body>
@@ -47,10 +47,13 @@
             <select id="firm" class="js-example-basic-single" name="firm">
                 <option></option>
             </select>
-            <label for="sol_select" id="sol_select" class="question-text">Is there a specific <strong>solicitor</strong> they want?</label>
-            <select id="sol_select" class="js-example-basic-single" name="sol_select">
-                <option></option>
-            </select>
+            <label for="sol_select" id="sol_select_label" class="question-text">Is there a specific <strong>solicitor</strong> they want?</label>
+            <div class="sol_select_group">
+                <select id="sol_select" class="js-example-responsive sol_select" name="sol_select" onchange="getSolNum()">
+                    <option></option>
+                </select>
+                <input class="sol_num" type="text" name="sol_num" id="sol_num">
+            </div>
             <div class="dp_name_group">
                 <div class="dp_name_field">
                     <label for="surname" class="question-text">Detainee’s <strong>Surname</strong>?</label>
@@ -85,9 +88,12 @@
             <select id="offence" class="js-example-basic-single data_dropdown" name="offence">
                 <option></option>
             </select>
-            <label for="comments" class="question-text">Do you have any other <strong>comments</strong> about the Detainee's current condition?</label>
+            <label for="comments" class="question-text">Do you have any further <strong>comments</strong> about the Detainee's current condition?</label>
             <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
             <label id="ref_num" class="question-text">The DRS <strong>reference number</strong> for this Detainee is:<p id="ref_num" name="ref_num"></p></label>
+            <div class="btn_container">
+                <input class="submit_btn" type="submit" value="Submit">
+            </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

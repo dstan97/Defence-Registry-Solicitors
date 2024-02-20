@@ -1,11 +1,13 @@
 $(document).ready(function() {
     $('.js-example-basic-single').select2();
+    $(".js-example-responsive").select2();
     $('#firm').next(".select2-container").hide();
     $('#int_required').next(".select2-container").hide();
 });
 
 let stations;
 let offences;
+let solicitors;
 
 fetch('./stations.json')
     .then(results => results.json())
@@ -36,6 +38,30 @@ fetch('./firms.json')
             document.getElementById("firm").innerHTML += `<option value="` + firms.firms[i] + `">` + firms.firms[i] + `</option>`;
             }
     });
+
+fetch('./solicitors.json')
+    .then(results => results.json())
+    .then(
+        function(data){
+            solicitors = data;
+            for (let i = 0; i < solicitors.solicitors.length; i++) {
+            document.getElementById("sol_select").innerHTML += `<option value="` + i + `">` + solicitors.solicitors[i] + `</option>`;
+            }
+    });
+
+function getSolNum(){
+    fetch('./sol_nums.json')
+        .then(results => results.json())
+        .then(
+            function(data){
+                sol_nums = data;
+                for (let i = 0; i < sol_nums.sol_nums.length; i++) {
+                if(document.getElementById("sol_select").value >= 0) {
+                    document.getElementById("sol_num").value = sol_nums.sol_nums[document.getElementById("sol_select").value];
+                }
+                }
+        });  
+}
 
 fetch('./languages.json')
     .then(results => results.json())
