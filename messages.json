@@ -1,0 +1,26 @@
+[
+    {
+        "station": "Basildon, Essex",
+        "pol_or_sol": "pol",
+        "caller_id": "PC DOBBS 23343",
+        "station_number": "01212556789",
+        "duty_or_own": "own",
+        "scheme": "",
+        "firm": "Norton Rose Fulbright",
+        "sol_select": "74",
+        "sol_num": "Tel Number: 07053799759",
+        "forename": "BRIAN",
+        "surname": "SMITH",
+        "gender": "male",
+        "adult": "adult",
+        "app": "no",
+        "interpreter": "no",
+        "app_arranged": "app_arranged",
+        "int_required": "",
+        "cust_num": "CR20000000",
+        "arrival": "2024-02-21T17:48",
+        "offence": "ABH - Actual Bodily Harm",
+        "comments": "REQ OWN\r\nKYLER KELLER",
+        "ref_num": "24024246A"
+    }
+]
