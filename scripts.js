@@ -170,12 +170,12 @@ fetch('./messages.json')
         function(data){
             messages = data;
             for (let i = 0; i < messages.length; i++) {
-            document.getElementById("deploy_station").innerHTML = "The case is for " + messages[i].station + " police station";
-            document.getElementById("deploy_name").innerHTML = "The detainee is " + messages[i].forename + " " + messages[i].surname;
-            document.getElementById("deploy_identity").innerHTML = "They are an " + messages[i].adult + " " + messages[i].gender;
-            document.getElementById("deploy_offence").innerHTML = "The offence(s) is " + messages[i].offence;
-            document.getElementById("deploy_arrival").innerHTML = "The arrival time was " + messages[i].arrival;
-            document.getElementById("deploy_ref").innerHTML = "The case reference number is " + messages[i].ref_num;
-            document.getElementById("deploy_custody").innerHTML = "The case reference number is " + messages[i].cust_num;
+            document.getElementById("deploy_station").innerHTML = "The case is for " + "<strong>" + messages[i].station + " police station" + "</strong>";
+            document.getElementById("deploy_name").innerHTML = "The detainee is " + "<strong>" + messages[i].forename + " " + messages[i].surname + "</strong>";
+            document.getElementById("deploy_identity").innerHTML = "They are an " + "<strong>" + messages[i].adult + " " + messages[i].gender + "</strong>";
+            document.getElementById("deploy_offence").innerHTML = "The offence(s) is " + "<strong>" + messages[i].offence + "</strong>";
+            document.getElementById("deploy_arrival").innerHTML = "The arrival time was " + "<strong>" + messages[i].arrival + "</strong>";
+            document.getElementById("deploy_ref").innerHTML = "The case reference number is " + "<strong>" + messages[i].ref_num + "</strong>";
+            document.getElementById("deploy_custody").innerHTML = "The case reference number is " + "<strong>" + messages[i].cust_num + "</strong>";
             }
     });
