@@ -60,7 +60,7 @@ function getSolNum(){
                 sol_nums = data;
                 for (let i = 0; i < sol_nums.sol_nums.length; i++) {
                 if(document.getElementById("sol_select").value >= 0) {
-                    document.getElementById("sol_num").value = "Tel Number: " + sol_nums.sol_nums[document.getElementById("sol_select").value];
+                    document.getElementById("sol_num").value = sol_nums.sol_nums[document.getElementById("sol_select").value];
                 }
                 }
         });  
@@ -164,18 +164,28 @@ function ownCheck(src) {
     }
 }
 
-fetch('./messages.json')
+fetch('./cases.json')
     .then(results => results.json())
     .then(
         function(data){
-            messages = data;
-            for (let i = 0; i < messages.length; i++) {
-            document.getElementById("deploy_station").innerHTML = "The case is for " + "<strong>" + messages[i].station + " police station" + "</strong>";
-            document.getElementById("deploy_name").innerHTML = "The detainee is " + "<strong>" + messages[i].forename + " " + messages[i].surname + "</strong>";
-            document.getElementById("deploy_identity").innerHTML = "They are an " + "<strong>" + messages[i].adult + " " + messages[i].gender + "</strong>";
-            document.getElementById("deploy_offence").innerHTML = "The offence(s) is " + "<strong>" + messages[i].offence + "</strong>";
-            document.getElementById("deploy_arrival").innerHTML = "The arrival time was " + "<strong>" + messages[i].arrival + "</strong>";
-            document.getElementById("deploy_ref").innerHTML = "The case reference number is " + "<strong>" + messages[i].ref_num + "</strong>";
-            document.getElementById("deploy_custody").innerHTML = "The case reference number is " + "<strong>" + messages[i].cust_num + "</strong>";
+            cases = data;
+            for (let i = 0; i < cases.length; i++) {
+            document.getElementById("deploy_station").innerHTML = "The case is for " + "<strong>" + cases[cases.length - 1].station + " police station" + "</strong>";
+            document.getElementById("deploy_name").innerHTML = "The detainee is " + "<strong>" + cases[cases.length - 1].forename + " " + cases[cases.length - 1].surname + "</strong>";
+            document.getElementById("deploy_identity").innerHTML = "They are an " + "<strong>" + cases[cases.length - 1].adult + " " + cases[cases.length - 1].gender + "</strong>";
+            document.getElementById("deploy_offence").innerHTML = "The offence(s) is " + "<strong>" + cases[cases.length - 1].offence.split('- ')[1] + "</strong>";
+            document.getElementById("deploy_arrival").innerHTML = "The arrival time was " + "<strong>" + cases[cases.length - 1].arrival.split('T')[1] + " (" + cases[cases.length - 1].arrival.substring(0, cases[cases.length - 1].arrival.indexOf("T")) + ")</strong>";
+            document.getElementById("deploy_ref").innerHTML = "The case reference number is " + "<strong>" + cases[cases.length - 1].ref_num + "</strong>";
+            document.getElementById("deploy_custody").innerHTML = "The custody number is " + "<strong>" + cases[cases.length - 1].cust_num + "</strong>";
+            document.getElementById("case_type").innerHTML = "Hello, this is Defence Resgistry Solicitor _____ speaking. We have a <strong>" + cases[cases.length - 1].duty_or_own + "</strong> case, if you are able to accept?";
+            document.getElementById("sms_station").value = cases[cases.length - 1].station;
+            document.getElementById("sms_name").value = cases[cases.length - 1].forename + " " + cases[cases.length - 1].surname;
+            document.getElementById("sms_identity").value = cases[cases.length - 1].adult + " " + cases[cases.length - 1].gender;
+            document.getElementById("sms_offence").value = cases[cases.length - 1].offence.split('- ')[1];
+            document.getElementById("sms_arrival").value = cases[cases.length - 1].arrival.split('T')[1] + " (" + cases[cases.length - 1].arrival.substring(0, cases[cases.length - 1].arrival.indexOf("T")) + ")";
+            document.getElementById("sms_ref").value = cases[cases.length - 1].ref_num;
+            document.getElementById("sms_custody").value = cases[cases.length - 1].cust_num;
+            $('#deploy_sol_details').attr("value", cases[cases.length - 1].sol_select + " " + solicitors.solicitors[cases[cases.length - 1].sol_select].substring(solicitors.solicitors[cases[cases.length - 1].sol_select].indexOf(' ') + 1));
+            $('#deploy_sol_tel').attr("value", cases[cases.length - 1].sol_num);
             }
     });

@@ -1,5 +1,7 @@
 <?php require("script.php") ?>
 <?php include 'head.php';?>
+    <title>DRS - Case Logging</title>
+</head>
 <body>
 	<header class="site-header">
 			<div class="header-left">
@@ -42,7 +44,10 @@
                 <select id="sol_select" class="js-example-responsive sol_select" name="sol_select" onchange="getSolNum()">
                     <option></option>
                 </select>
-                <input class="sol_num" type="text" name="sol_num" id="sol_num">
+                <label for="sol_num" id="sol_num_label" class="question-text">
+                    Tel Number: 
+                    <input class="sol_num" type="text" name="sol_num" id="sol_num">
+                </label>
             </div>
             <div class="dp_name_group">
                 <div class="dp_name_field">
@@ -83,7 +88,7 @@
             <label class="question-text">The DRS <strong>reference number</strong> for this Detainee is:</label>
 				<input type="text" id="ref_num" name="ref_num">
             <div class="btn_container">
-				<input type="submit" name="submit" value="Deploy Case">
+				<input type="submit" name="submit" class="submit_btn" value="Deploy Case">
             </div>
 			<p class="error"><?php echo @$error; ?></p>
 			<p class="success"><?php echo @$success; ?></p>
